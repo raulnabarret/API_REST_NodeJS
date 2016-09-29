@@ -1,0 +1,22 @@
+{
+  "name": "restapi",
+  "version": "0.1.0",
+  "description": "RESTful API using Nodejs and Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raulnabarret/API_REST_NodeJS.git"
+  },
+  "author": "Raul Nabarret",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/raulnabarret/API_REST_NodeJS/issues"
+  },
+  "homepage": "https://github.com/raulnabarret/API_REST_NodeJS#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
