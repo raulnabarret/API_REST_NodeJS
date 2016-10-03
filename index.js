@@ -9,6 +9,12 @@ var port = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended:false }))
 app.use(bodyParser.json())
 
+app.get('/hola', function (req, res) {
+	res.send({
+		message: 'Hola Mundo!',
+	})
+})
+
 app.listen(port, () => {
 	console.log(`Running on port: ${port}`)
 })
