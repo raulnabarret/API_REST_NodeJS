@@ -4,6 +4,8 @@ var express = require('express')
 var bodyParser = require('body-parser')
 var mongoose = require('mongoose')
 
+var Product = require('./models/product')
+
 var app = express()
 var port = process.env.PORT || 3000
 
@@ -20,9 +22,22 @@ app.get('/api/product/:productId', (req, res) => {
 
 app.post('/api/product', (req, res) => {
 
-    console.log(req.body)
-    res.status(200).send({ message: 'El producto se ha agregado' })
+	console.log('POST /api/product')
+	console.log(req.body)
 
+	let product = new Product()
+	
+	product.name = req.body.name
+	product.picture = req.body.picture
+	product.price = req.body.price
+	product.category = req.body.category
+	product.description = req.body.description
+
+	product.save((err, productStored) => {
+		if(err) return res.status(500).send({message: `Error saving in DataBase: ${err}` })
+
+		res.status(200).send({product: productStored})
+	})
 })
 
 app.put('/api/product/:productId', (req, res) => {
